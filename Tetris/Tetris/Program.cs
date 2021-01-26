@@ -8,10 +8,7 @@ namespace Tetris
         {
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
-            Point p1 = new Point();
-            p1.x = 25;
-            p1.y = 23;
-            p1.s = '*';
+            Point p1 = new Point(2,3,'*');
             p1.Draw();
             Console.ReadLine();
         }
