@@ -9,9 +9,9 @@ namespace Tetris
     {
        public int X { get; set; }
        public int Y { get; set; }
-       public char S { get; set; }
-        public Point () {}
-
+        public char S { get; set; }
+       public Point () {}
+       
         public Point(Point point)
         {
             X = point.X;

@@ -7,16 +7,16 @@ namespace Tetris
        
         public Stick(int x, int y, char sym)
         {
-            points[0] = new Point(x, y, '*');
-            points[1] = new Point(x, y+1, '*');
-            points[2] = new Point(x, y+2, '*');
-            points[3] = new Point(x, y+3, '*');
+            Points[0] = new Point(x, y, '*');
+            Points[1] = new Point(x, y+1, '*');
+            Points[2] = new Point(x, y+2, '*');
+            Points[3] = new Point(x, y+3, '*');
             Draw();
         }
 
         public override void Rotate(Point [] plist)
         {
-           if (points[0].X == points[1].X)
+           if (Points[0].X == Points[1].X)
             {
                 RotateHorisontal(plist);
             }
@@ -28,7 +28,7 @@ namespace Tetris
 
         private void RotateVertical(Point [] pList)
         {
-            for (int i = 0; i < points.Length; i++)
+            for (int i = 0; i < Points.Length; i++)
             {
                 pList[i].X = pList[0].X;
                 pList[i].Y = pList[0].Y + i;
