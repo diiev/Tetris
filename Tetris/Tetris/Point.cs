@@ -30,6 +30,8 @@ namespace Tetris
         {
             Console.SetCursorPosition(x, y);
             Console.Write(s);
+            Console.CursorVisible = false;
+
         }
 
         public void Move(Direction direction)

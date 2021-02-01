@@ -8,8 +8,8 @@ namespace Tetris
         static void Main(string[] args)
         {
 
-          
-            Walls walls = new Walls(40, 30);
+
+            Field.Draw();
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure s = generator.GetNewFigure();
             while (true)
@@ -19,7 +19,6 @@ namespace Tetris
                 {
                     var key =  Console.ReadKey();
                     HandleKey(s, key);
-                  
                 }
                
             }
@@ -35,6 +34,9 @@ namespace Tetris
                 s.TryMove(Direction.LEFT);
             if (key.Key == ConsoleKey.RightArrow)
                 s.TryMove(Direction.RIGHT);
+            if (key.Key == ConsoleKey.Spacebar)
+                s.TryRotate();
+               
         }
 
         static void FigureFall( out Figure  s, FigureGenerator generator)
