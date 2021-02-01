@@ -8,8 +8,8 @@ namespace Tetris
         static void Main(string[] args)
         {
 
-            Console.SetWindowSize(40, 30);
-            Console.SetBufferSize(40, 30);
+          
+            Walls walls = new Walls(40, 30);
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure s = generator.GetNewFigure();
             while (true)
@@ -19,7 +19,7 @@ namespace Tetris
                 {
                     var key =  Console.ReadKey();
                     HandleKey(s, key);
-                    
+                  
                 }
                
             }
@@ -30,11 +30,11 @@ namespace Tetris
         private static void HandleKey(Figure s, ConsoleKeyInfo key)
         {
             if (key.Key == ConsoleKey.DownArrow)
-                s.Move(Direction.DOWN);
+                s.TryMove(Direction.DOWN);
             if (key.Key == ConsoleKey.LeftArrow)
-                s.Move(Direction.LEFT);
+                s.TryMove(Direction.LEFT);
             if (key.Key == ConsoleKey.RightArrow)
-                s.Move(Direction.RIGHT);
+                s.TryMove(Direction.RIGHT);
         }
 
         static void FigureFall( out Figure  s, FigureGenerator generator)
@@ -44,7 +44,7 @@ namespace Tetris
             for (int i = 0; i < 15; i++)
             {
                 s.Hide();
-                s.Move(Direction.DOWN);
+                s.TryMove(Direction.DOWN);
                 s.Draw();
                 Thread.Sleep(200);
             }
