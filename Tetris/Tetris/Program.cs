@@ -4,19 +4,21 @@ using System.Threading;
 namespace Tetris
 {
     class Program
-    {  
+    {
+        static FigureGenerator generator;
         static void Main(string[] args)
         {
             Field.Draw();
-            FigureGenerator generator = new FigureGenerator(20, 0, '*');
-            Figure figure = generator.GetNewFigure();
+            generator = new FigureGenerator(20, 0, '*');
+            Figure currentFigure = generator.GetNewFigure();
             while (true)
             {
-               
+
                 if (Console.KeyAvailable)
                 {
                     var key =  Console.ReadKey();
-                    HandleKey(figure, key); 
+                    var result = HandleKey(currentFigure, key.Key);
+                    ProcessResult(result, ref currentFigure);
                 }
                
             }
@@ -24,17 +26,33 @@ namespace Tetris
            //  Console.ReadLine();
         }
 
-        private static void HandleKey(Figure figure, ConsoleKeyInfo key)
+        private static bool ProcessResult(Result result, ref Figure currentFigure)
         {
-            if (key.Key == ConsoleKey.DownArrow)
-                figure.TryMove(Direction.DOWN);
-            if (key.Key == ConsoleKey.LeftArrow)
-                figure.TryMove(Direction.LEFT);
-            if (key.Key == ConsoleKey.RightArrow)
-                figure.TryMove(Direction.RIGHT);
-            if (key.Key == ConsoleKey.Spacebar)
-                figure.TryRotate();
-               
+            if (result == Result.HEAP_STRIKE || result == Result.DOWN_BORDER_STRIKE)
+            {
+                Field.AddFigure(currentFigure);
+                currentFigure = generator.GetNewFigure();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private static Result HandleKey(Figure figure, ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                    return figure.TryMove(Direction.LEFT);
+                case ConsoleKey.RightArrow:
+                    return figure.TryMove(Direction.RIGHT);
+                case ConsoleKey.DownArrow:
+                    return figure.TryMove(Direction.DOWN);
+                case ConsoleKey.Spacebar:
+                    return figure.TryRotate();
+            }
+            return Result.SUCCESS;
+
         }
 
         static void FigureFall( out Figure figure, FigureGenerator generator)

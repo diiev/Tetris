@@ -23,7 +23,7 @@ namespace Tetris
         {
             return _heap[p.Y][p.X];
         }
-        public static void AddFigure (Figure fig)
+        public static void AddFigure(Figure fig)
         {
             foreach (var p in fig.Points)
             {
