@@ -6,8 +6,8 @@ namespace Tetris
 {
     abstract class Figure
     {
-        private const int size = 4;
-        protected Point[] points = new Point[size];
+        private const int SIZE = 4;
+        protected Point[] points = new Point[SIZE];
         public void Draw()
         {
             foreach (Point p in points)
@@ -31,7 +31,7 @@ namespace Tetris
         {
             foreach (var p in clone )
             {
-                if (p.x < 0 || p.y < 0 || p.x >= Field.Width || p.y >= Field.Height)
+                if (p.X < 0 || p.Y < 0 || p.X >= Field.Width || p.Y >= Field.Height)
                     return false;
             }
             return true;
@@ -40,8 +40,8 @@ namespace Tetris
 
         private Point [] Clone ()
         {
-            var newPoints = new Point[size];
-            for (int i = 0; i < size; i++)
+            var newPoints = new Point[SIZE];
+            for (int i = 0; i < SIZE; i++)
             {
                 newPoints[i] = new Point(points[i]);
             }

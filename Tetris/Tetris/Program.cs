@@ -9,14 +9,14 @@ namespace Tetris
         {
             Field.Draw();
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
-            Figure s = generator.GetNewFigure();
+            Figure figure = generator.GetNewFigure();
             while (true)
             {
                
                 if (Console.KeyAvailable)
                 {
                     var key =  Console.ReadKey();
-                    HandleKey(s, key); 
+                    HandleKey(figure, key); 
                 }
                
             }
@@ -24,28 +24,28 @@ namespace Tetris
            //  Console.ReadLine();
         }
 
-        private static void HandleKey(Figure s, ConsoleKeyInfo key)
+        private static void HandleKey(Figure figure, ConsoleKeyInfo key)
         {
             if (key.Key == ConsoleKey.DownArrow)
-                s.TryMove(Direction.DOWN);
+                figure.TryMove(Direction.DOWN);
             if (key.Key == ConsoleKey.LeftArrow)
-                s.TryMove(Direction.LEFT);
+                figure.TryMove(Direction.LEFT);
             if (key.Key == ConsoleKey.RightArrow)
-                s.TryMove(Direction.RIGHT);
+                figure.TryMove(Direction.RIGHT);
             if (key.Key == ConsoleKey.Spacebar)
-                s.TryRotate();
+                figure.TryRotate();
                
         }
 
-        static void FigureFall( out Figure  s, FigureGenerator generator)
+        static void FigureFall( out Figure figure, FigureGenerator generator)
         {
-            s = generator.GetNewFigure();
-            s.Draw();
+            figure = generator.GetNewFigure();
+            figure.Draw();
             for (int i = 0; i < 15; i++)
             {
-                s.Hide();
-                s.TryMove(Direction.DOWN);
-                s.Draw();
+                figure.Hide();
+                figure.TryMove(Direction.DOWN);
+                figure.Draw();
                 Thread.Sleep(200);
             }
         }
