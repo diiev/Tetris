@@ -29,7 +29,8 @@ namespace Tetris
             {
                 p.Hide();
             }
-        }
+        } 
+      
         public abstract void Rotate();
     }
 }
