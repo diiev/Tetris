@@ -7,7 +7,9 @@ C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\Tetris.pd
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csprojAssemblyReference.cache
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.AssemblyInfoInputs.cache
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.AssemblyInfo.cs
-C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csproj.CoreCompileInputs.cache
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.dll
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.pdb
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.genruntimeconfig.cache
+C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\OpenXmlPowerTools.dll
+C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csproj.CoreCompileInputs.cache
+C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csproj.CopyComplete

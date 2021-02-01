@@ -7,8 +7,6 @@ namespace Tetris
     {  
         static void Main(string[] args)
         {
-
-
             Field.Draw();
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure s = generator.GetNewFigure();
@@ -18,7 +16,7 @@ namespace Tetris
                 if (Console.KeyAvailable)
                 {
                     var key =  Console.ReadKey();
-                    HandleKey(s, key);
+                    HandleKey(s, key); 
                 }
                
             }

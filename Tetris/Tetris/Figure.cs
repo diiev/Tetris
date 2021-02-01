@@ -5,10 +5,9 @@ using System.Text;
 namespace Tetris
 {
     abstract class Figure
-
     {
         private const int size = 4;
-       protected Point[] points = new Point[size];
+        protected Point[] points = new Point[size];
         public void Draw()
         {
             foreach (Point p in points)
@@ -32,7 +31,7 @@ namespace Tetris
         {
             foreach (var p in clone )
             {
-                if (p.x < 0 || p.y < 0 || p.x >= Field.WIDTH || p.y >= Field.HEIGHT)
+                if (p.x < 0 || p.y < 0 || p.x >= Field.Width || p.y >= Field.Height)
                     return false;
             }
             return true;

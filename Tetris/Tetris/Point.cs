@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenXmlPowerTools;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,8 +10,6 @@ namespace Tetris
        public int x;
        public int y;
        public char s;
-      
-
         public Point () {}
 
         public Point(Point point)

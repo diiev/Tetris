@@ -16,10 +16,15 @@ namespace Tetris
 
         public override void Rotate(Point [] plist)
         {
-           if (points[0].x == points[1].x) 
+           if (points[0].x == points[1].x)
+            {     
+                
                  RotateHorisontal(plist);
+            }
            else
+            {
                 RotateVertical(plist);
+            }
         }
 
         private void RotateVertical(Point [] pList)

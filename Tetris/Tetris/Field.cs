@@ -6,17 +6,17 @@ namespace Tetris
 {
      static class Field
     {
-        static public int WIDTH = 40;
-        static public int HEIGHT = 30;
+        public static int Width { get; set; } = 40;
+        public static int Height { get; set; } = 30;
 
         public static void Draw ()
         {
-            Console.SetBufferSize(40, 30);
-            Console.SetWindowSize(40, 30);
+            Console.SetBufferSize(Width, Height);
+            Console.SetWindowSize(Width, Height);
         }
  
         
-
+         
         
     }
 }
