@@ -78,6 +78,12 @@ namespace Tetris
             
            
         }
+
+        internal bool IsOnTop()
+        {
+            return Points[0].Y == 0;
+        }
+
         //public void Move(Direction direction)
         //{
 
