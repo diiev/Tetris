@@ -15,8 +15,8 @@ namespace Tetris
         
         static void Main(string[] args)
         {
-           
-            //Field.Draw();
+
+            Field.Draw();
             generator = new FigureGenerator(Field.Width/2, 0, Drawer.DEFAULT_SYMBOL);
             currentFigure = generator.GetNewFigure();
             SetTimer();
@@ -100,19 +100,5 @@ namespace Tetris
             return Result.SUCCESS;
 
         }
-
-        static void FigureFall( out Figure figure, FigureGenerator generator)
-        {
-            figure = generator.GetNewFigure();
-            figure.Draw();
-            for (int i = 0; i < 15; i++)
-            {
-                figure.Hide();
-                figure.TryMove(Direction.DOWN);
-                figure.Draw();
-                Thread.Sleep(300);
-            }
-        }
-      
     }
 }

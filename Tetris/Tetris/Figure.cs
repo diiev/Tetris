@@ -18,20 +18,40 @@ namespace Tetris
 
         public Result TryMove (Direction direction)
         {
+           
             Hide();
-            var clone = Clone();
-            Move(clone, direction);
-            var result = VerifyPosition(clone);
-            if (result == Result.SUCCESS)
-            {
-                Points = clone;
-            }
+
+            Move(direction);
+
+            var result = VerifyPosition();
+            if (result != Result.SUCCESS)
+                Move(Reverse(direction));
+            
             Draw();
             return result;
         }
-        private Result VerifyPosition(Point[] clone)
+
+        private Direction Reverse(Direction dir)
         {
-            foreach (var p in clone )
+            switch (dir)
+            {
+                case Direction.LEFT:
+                    return Direction.RIGHT;
+                case Direction.RIGHT:
+                    return Direction.LEFT;
+                case Direction.DOWN:
+                    return Direction.UP;
+                case Direction.UP:
+                    return Direction.DOWN;
+                
+            }
+            return dir;
+            
+        }
+
+        private Result VerifyPosition()
+        {
+            foreach (var p in Points )
             {
                 if (p.Y >= Field.Height)
                     return Result.DOWN_BORDER_STRIKE;
@@ -43,35 +63,23 @@ namespace Tetris
             return Result.SUCCESS;
         }
 
-
-        private Point [] Clone ()
-        {
-            var newPoints = new Point[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                newPoints[i] = new Point(Points[i]);
-            }
-            return newPoints;
-        }
-
         internal Result TryRotate()
         {
             Hide();
-            var clone = Clone();
-            Rotate(clone);
-            var result = VerifyPosition(clone);
-            if (result == Result.SUCCESS)
-            {
-                Points = clone;
-            }
+            Rotate();
+            var result = VerifyPosition();
+            if (result != Result.SUCCESS)
+                Rotate();
+           
             Draw();
             return result;
         }
 
-        public void Move (Point [] points, Direction direction)
-        {  
-           
-                foreach (Point p in points)
+
+        public void Move (Direction direction)
+        {
+
+            foreach (Point p in Points)
                 {
                     p.Move(direction);
                 }
@@ -102,6 +110,6 @@ namespace Tetris
             }
         } 
       
-        public abstract void Rotate(Point [] pList);
+        public abstract void Rotate();
     }
 }

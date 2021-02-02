@@ -47,7 +47,7 @@ namespace Tetris
         internal void Hide()
         {
             Console.SetCursorPosition(X, Y);
-            Console.Write(" ");
+            Console.Write(' ');
         }
     }
 }

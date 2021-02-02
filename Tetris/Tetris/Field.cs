@@ -82,11 +82,6 @@ namespace Tetris
         {
             Console.SetWindowSize(Width, Height);
             Console.SetBufferSize(Width, Height);
-           
         }
- 
-        
-         
-        
     }
 }
