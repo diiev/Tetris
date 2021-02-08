@@ -6,8 +6,8 @@ namespace Tetris
 {
      static class Field
     {
-        public static int Width { get; set; } = 20;
-        public static int Height { get; set; } = 20;
+        public static int Width { get; set; } = 30;
+        public static int Height { get; set; } = 30;
         private static bool[][] _heap; 
 
         static Field ()
@@ -75,6 +75,7 @@ namespace Tetris
             foreach (var p in fig.Points)
             {
                 _heap[p.Y][p.X] = true;
+               
             }
            
         }
