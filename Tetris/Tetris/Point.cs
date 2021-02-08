@@ -19,17 +19,15 @@ namespace Tetris
             S = point.S;
         }
 
-        public Point (int x, int y, char s)
+        public Point (int x, int y)
         {
             X = x;
             Y = y;
-            S = s;
+            
         }
        public void Draw()
         {
-            Console.SetCursorPosition(X, Y);
-            Console.Write(S);
-            Console.CursorVisible = false;
+            DrawerProvider.Drawer.DrawPoint(X,Y);
         }
 
         public void Move(Direction direction)
@@ -46,8 +44,7 @@ namespace Tetris
 
         internal void Hide()
         {
-            Console.SetCursorPosition(X, Y);
-            Console.Write(' ');
+            DrawerProvider.Drawer.HidePoint(X, Y);
         }
     }
 }
