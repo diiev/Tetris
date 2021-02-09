@@ -10,7 +10,7 @@ namespace Tetris
         {
             Console.SetCursorPosition(x, y);
             Console.Write('*');
-            Console.CursorVisible = false;
+           Console.CursorVisible = false;
         }
 
         public void HidePoint(int x, int y)
@@ -23,8 +23,11 @@ namespace Tetris
         public  void WriteGameOver()
         {
             Console.Clear();
-            Console.SetCursorPosition(Field.Width / 2 - 4, Field.Height / 2);
+            Console.SetCursorPosition(Field.Width / 2 - 8, Field.Height / 2);
             Console.WriteLine("G A M E  O V E R !");
+            Console.Beep();
+   
+           
         }
         public void InitField()
         {

@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "Tetris/1.0.0": {
         "dependencies": {
-          "OpenXmlPowerTools": "4.5.3.2"
+          "OpenXmlPowerTools": "4.5.3.2",
+          "SmallBasicLibrary": "1.2.0.0"
         },
         "runtime": {
           "Tetris.dll": {}
@@ -19,6 +20,14 @@
           "lib/net45/OpenXmlPowerTools.dll": {
             "assemblyVersion": "4.5.3.0",
             "fileVersion": "4.5.3.0"
+          }
+        }
+      },
+      "SmallBasicLibrary/1.2.0.0": {
+        "runtime": {
+          "SmallBasicLibrary.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           }
         }
       }
@@ -36,6 +45,11 @@
       "sha512": "sha512-F0HxQxh5+ZL5lOhkddrIozQj2ml0Zzwp25P5teEDmT8iyj++ZpeXf7c6aYqvHH1A9uULyayKVUUYhLi7+55pFw==",
       "path": "openxmlpowertools/4.5.3.2",
       "hashPath": "openxmlpowertools.4.5.3.2.nupkg.sha512"
+    },
+    "SmallBasicLibrary/1.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

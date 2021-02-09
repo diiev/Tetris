@@ -38,6 +38,7 @@ namespace Tetris
                 case Direction.DOWN: Y++; break;
                 case Direction.LEFT: X--; break;
                 case Direction.RIGHT: X++; break;
+                case Direction.UP: Y--; break;
             }
 
         }

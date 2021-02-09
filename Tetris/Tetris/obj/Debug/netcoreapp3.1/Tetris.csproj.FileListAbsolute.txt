@@ -13,3 +13,5 @@ C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.ge
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\OpenXmlPowerTools.dll
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csproj.CoreCompileInputs.cache
 C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\obj\Debug\netcoreapp3.1\Tetris.csproj.CopyComplete
+C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\SmallBasicLibrary.dll
+C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\SmallBasicLibrary.xml

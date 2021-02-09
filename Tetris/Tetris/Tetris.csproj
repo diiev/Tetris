@@ -9,4 +9,10 @@
     <PackageReference Include="OpenXmlPowerTools" Version="4.5.3.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="SmallBasicLibrary">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft\Small Basic\SmallBasicLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
