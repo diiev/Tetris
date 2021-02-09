@@ -22,7 +22,7 @@ namespace Tetris
             SetTimer();
             currentFigure = generator.GetNewFigure();
             currentFigure.Draw();
-            ConsoleKeyGame();
+            ConsoleGameStart();
             // GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
 
 
@@ -116,7 +116,7 @@ namespace Tetris
 
 
         }
-        public static void ConsoleKeyGame()
+        public static void ConsoleGameStart()
         {
             while (true)
             {
