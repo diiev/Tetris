@@ -17,13 +17,14 @@ namespace Tetris
         static void Main(string[] args)
         {
 
+           
             DrawerProvider.Drawer.InitField();
 
             SetTimer();
             currentFigure = generator.GetNewFigure();
             currentFigure.Draw();
             ConsoleGameStart();
-            // GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
+            //GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
 
 
         }

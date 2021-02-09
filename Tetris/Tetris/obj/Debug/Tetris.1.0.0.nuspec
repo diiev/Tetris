@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Tetris</id>
+    <version>1.0.0</version>
+    <authors>Tetris</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="OpenXmlPowerTools" version="4.5.3.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\Tetris.runtimeconfig.json" target="lib\netcoreapp3.1\Tetris.runtimeconfig.json" />
+    <file src="C:\Users\DrM\source\repos\Tetris\Tetris\Tetris\bin\Debug\netcoreapp3.1\Tetris.dll" target="lib\netcoreapp3.1\Tetris.dll" />
+  </files>
+</package>
