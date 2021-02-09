@@ -1,40 +1,31 @@
 ﻿using System;
 using System.Threading;
 using System.Timers;
+using Microsoft.SmallBasic.Library;
 
 namespace Tetris
 {
     class Program
     {
         const int TIMER_INTERVAL = 500;
-        static System.Timers.Timer aTimer;
-        static FigureGenerator generator;
-        static Figure currentFigure;
         static private object _lockObject = new object();
-       
-        
+        static System.Timers.Timer aTimer;
+        static Figure currentFigure;
+        static FigureGenerator generator = new FigureGenerator(Field.Width / 2, 0);
+        private static bool gameOver = false;
+
         static void Main(string[] args)
         {
 
             DrawerProvider.Drawer.InitField();
-            generator = new FigureGenerator(Field.Width/2, 0);
-            currentFigure = generator.GetNewFigure();
-            SetTimer();
-            while (true)
-            {
 
-                if (Console.KeyAvailable)
-                {
-                    var key =  Console.ReadKey();
-                    Monitor.Enter(_lockObject);
-                    var result = HandleKey(currentFigure, key.Key);
-                    ProcessResult(result, ref currentFigure);
-                    Monitor.Exit(_lockObject);
-                }
-               
-            } 
-         
-           //  Console.ReadLine();
+            SetTimer();
+            currentFigure = generator.GetNewFigure();
+            currentFigure.Draw();
+            ConsoleKeyGame();
+            // GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
+
+
         }
 
         private static void SetTimer()
@@ -50,20 +41,21 @@ namespace Tetris
         {
             Monitor.Enter(_lockObject);
             var result = currentFigure.TryMove(Direction.DOWN);
-            ProcessResult(result, ref currentFigure);
+            gameOver = ProcessResult(result, ref currentFigure);
+            if (gameOver)
+                aTimer.Stop();
             Monitor.Exit(_lockObject);
         }
         private static bool ProcessResult(Result result, ref Figure currentFigure)
         {
             if (result == Result.HEAP_STRIKE || result == Result.DOWN_BORDER_STRIKE)
             {
-               
-                Field.TryDeleteLines();
+
                 Field.AddFigure(currentFigure);
+                Field.TryDeleteLines();
                 if (currentFigure.IsOnTop())
                 {
                     DrawerProvider.Drawer.WriteGameOver();
-                    aTimer.Elapsed -= OnTimedEvent;
                     return true;
                 }
                 else
@@ -71,14 +63,13 @@ namespace Tetris
                     currentFigure = generator.GetNewFigure();
                     return false;
                 }
-               
+
             }
             else
+            {
                 return false;
+            }
         }
-
-        
-
         private static Result HandleKey(Figure figure, ConsoleKey key)
         {
             switch (key)
@@ -95,5 +86,55 @@ namespace Tetris
             return Result.SUCCESS;
 
         }
+        private static Result HandleKey(Figure figure, String key)
+        {
+            switch (key)
+            {
+
+                case "Left":
+                    return figure.TryMove(Direction.LEFT);
+                case "Right":
+                    return figure.TryMove(Direction.RIGHT);
+                case "Down":
+                    return figure.TryMove(Direction.DOWN);
+                case "Space":
+                    return figure.TryRotate();
+            }
+            return Result.SUCCESS;
+
+        }
+        private static void GraphicsWindow_KeyDown()
+        {
+            Monitor.Enter(_lockObject);
+            var result = HandleKey(currentFigure, GraphicsWindow.LastKey);
+            if (GraphicsWindow.LastKey == "Down")
+            {
+                gameOver = ProcessResult(result, ref currentFigure);
+            }
+            Monitor.Exit(_lockObject);
+
+
+
+        }
+        public static void ConsoleKeyGame()
+        {
+            while (true)
+            {
+
+                if (Console.KeyAvailable)
+                {
+                    var key = Console.ReadKey();
+                    Monitor.Enter(_lockObject);
+                    var result = HandleKey(currentFigure, key.Key);
+                    ProcessResult(result, ref currentFigure);
+                    Monitor.Exit(_lockObject);
+                }
+
+            }
+
+        }
     }
+
+
 }
+
